@@ -1,6 +1,6 @@
 {
-	"name": "typescript-runtime-type-system",
-	"displayName": "TypeScript Runtime Type System",
+	"name": "typescript-import",
+	"displayName": "TypeScript Import",
 	"description": "",
 	"version": "0.0.1",
 	"publisher": "zc",
