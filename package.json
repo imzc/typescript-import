@@ -1,0 +1,64 @@
+{
+	"name": "typescript-runtime-type-system",
+	"displayName": "TypeScript Runtime Type System",
+	"description": "",
+	"version": "0.0.1",
+	"publisher": "zc",
+	"engines": {
+		"vscode": "^0.10.6"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:tsimport.addImport.relative",
+		"onCommand:tsimport.addImport.absolute"
+	],
+	"main": "./out/src/extension",
+	"contributes": {
+		"commands": [{
+			"command": "tsimport.addImport.relative",
+			"title": "Add TypeScript Relative Import, use path relative to current file"
+		},{
+			"command": "tsimport.addImport.absolute",
+			"title": "Add TypeScript Absolute Import, use path relative to workspace"
+		}],
+        "keybindings": [{
+            "command": "tsimport.addImport.relative",
+            "key": "ctrl+9",
+            "when": "editorTextFocus"
+        },{
+            "command": "tsimport.addImport.absolute",
+            "key": "ctrl+0",
+            "when": "editorTextFocus"
+        }],
+        "configuration": {
+            "type": "object",
+            "title": "TypeScript import configuration",
+            "properties": {
+                "tsimport.ignoreSrcFolder": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Ignore the \"src\" folder while using absolute path"
+                },
+                "tsimport.root": {
+                    "type": "string",
+                    "default": null,
+                    "description": "Specifies the folder path as the root while using absolute path, e.g. \"src\" "
+                }
+            }
+        }
+	},
+	"scripts": {
+		"vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+		"compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install"
+	},
+	"devDependencies": {
+		"typescript": "^1.7.5",
+		"vscode": "^0.11.0"
+	},
+	"dependencies": {
+		"typescript": "^1.7.5"
+	}
+}
